@@ -1,0 +1,917 @@
+{
+  "@context": {
+    "id": "@id",
+    "graph": {
+      "@id": "@graph",
+      "@container": "@set"
+    },
+    "type": {
+      "@id": "@type",
+      "@container": "@set"
+    },
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "sh": "https://www.w3.org/ns/shacl#",
+    "dct": "http://purl.org/dc/terms/",
+    "domain": {
+      "@id": "rdfs:domain",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "range": {
+      "@id": "rdfs:range",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "label": {
+      "@id": "rdfs:label",
+      "@container": "@set"
+    },
+    "comment": {
+      "@id": "rdfs:comment",
+      "@container": "@set"
+    },
+    "subClassOf": {
+      "@id": "rdfs:subClassOf",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "subPropertyOf": {
+      "@id": "rdfs:subPropertyOf",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "isDefinedBy": {
+      "@id": "rdfs:isDefinedBy",
+      "@container": "@set"
+    },
+    "seeAlso": {
+      "@id": "rdfs:seeAlso",
+      "@container": "@set"
+    },
+    "maxCount": {
+      "@id": "sh:maxCount",
+      "@type": "xsd:integer"
+    },
+    "minCount": {
+      "@id": "sh:minCount",
+      "@type": "xsd:integer"
+    },
+    "path": {
+      "@id": "sh:path",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "title": {
+      "@id": "dct:title",
+      "@container": "@set"
+    },
+    "description": {
+      "@id": "rdfx:description",
+      "@container": "@set"
+    },
+    "date": {
+      "@id": "dct:date",
+      "@container": "@set"
+    },
+    "sch": "http://schema.org/",
+    "address": {
+      "@id": "sch:address",
+      "@container": "@set"
+    },
+    "stardDate": {
+      "@id": "sch:stardDate",
+      "@container": "@set"
+    },
+    "author": {
+      "@id": "sch:author",
+      "@container": "@set"
+    },
+    "image": {
+      "@id": "sch:image",
+      "@container": "@set"
+    },
+    "provider": {
+      "@id": "sch:provider",
+      "@container": "@set"
+    },
+    "publisher": {
+      "@id": "sch:publisher",
+      "@container": "@set"
+    },
+    "url": {
+      "@id": "sch:url",
+      "@container": "@set"
+    },
+    "name": {
+      "@id": "sch:name",
+      "@container": "@set"
+    },
+    "logo": {
+      "@id": "sch:logo",
+      "@container": "@set"
+    },
+    "identifier": {
+      "@id": "sch:identifier",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "sch_contributor": {
+      "@id": "sch:contributor",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "gendj": "https://gen.competencies.be/terms/digitalJobs/",
+    "inScheme": {
+      "@id": "skos:inScheme",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "prefLabel": {
+      "@id": "skos:prefLabel",
+      "@container": "@set"
+    },
+    "altLabel": {
+      "@id": "skos:altLabel",
+      "@container": "@set"
+    },
+    "narrower": {
+      "@id": "skos:narrower",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "broader": {
+      "@id": "skos:broader",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "member": {
+      "@id": "skos:member",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "definition": {
+      "@id": "skos:definition",
+      "@container": "@set"
+    },
+    "scopeNote": {
+      "@id": "skos:scopeNote",
+      "@container": "@set"
+    },
+    "example": {
+      "@id": "skos:example",
+      "@container": "@set"
+    },
+    "openBadge": "https://w3id.org/openbadges#",
+    "badge": {
+      "@id": "openBadge:badge",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "issuer": {
+      "@id": "openBadge:issuer",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "issuedOn": {
+      "@id": "openBadge:issuedOn",
+      "@container": "@set"
+    },
+    "recipient": {
+      "@id": "openBadge:recipient",
+      "@container": "@set"
+    },
+    "openBadge_image": {
+      "@id": "openBadge:image",
+      "@container": "@set"
+    },
+    "openBadge_name": {
+      "@id": "openBadge:name",
+      "@container": "@set"
+    },
+    "openBadge_url": {
+      "@id": "openBadge:url",
+      "@container": "@set"
+    },
+    "criteria": {
+      "@id": "openBadge:criteria",
+      "@container": "@set"
+    },
+    "vs": "https://www.w3.org/2003/06/sw-vocab-status/ns/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "nfr": "https://nodefr.competencies.be/nfr/",
+    "aPourNiveau": {
+      "@id": "nfr:aPourNiveau",
+      "@container": "@set"
+    },
+    "chargeDeTravail": {
+      "@id": "nfr:chargeDeTravail",
+      "@container": "@set"
+    },
+    "devise": {
+      "@id": "nfr:devise",
+      "@container": "@set"
+    },
+    "montant": {
+      "@id": "nfr:montant",
+      "@container": "@set"
+    },
+    "typeDActivite": {
+      "@id": "nfr:typeDActivite",
+      "@container": "@set"
+    },
+    "dateDeCreation": {
+      "@id": "nfr:dateDeCreation",
+      "@container": "@set"
+    },
+    "ori": "https://ori.competencies.be/ori/",
+    "rdfx": "https://rdfx.competencies.be/lts/",
+    "experienceStructure": {
+      "@id": "ori:experienceStructure",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "experienceType": {
+      "@id": "ori:experienceType",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "public": {
+      "@id": "ori:public",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "role": {
+      "@id": "ori:role",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "tache": {
+      "@id": "ori:tache",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "hobby": {
+      "@id": "ori:hobby",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "bloom": {
+      "@id": "ori:bloom",
+      "@type": "@id",
+      "@container": "@set"
+    }
+  },
+  "graph": [
+    {
+      "id": "ori:LearningObject/02f6cb4b8a5211184d2119a7d43b7a461b358f447fed709e1f7592d0e918b356~iri",
+      "type": [
+        "ori:LearningObject"
+      ],
+      "image": [
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/10website.png"
+        }
+      ],
+      "url": [
+        {
+          "id": "https://www.studocu.com/fr/document/universite-paris-nanterre/psychologie-sociale/devoir-apprendre-1/20737802"
+        }
+      ],
+      "prefLabel": [
+        "Devoir apprendre 1 - Psychologie sociale - Université ..."
+      ],
+      "dateDeCreation": [
+        "May 19, 2022 7:09 pm"
+      ]
+    },
+    {
+      "id": "ori:LearningObject/15fa4f19958098ed267e245ce4ecc190951ecc553859b0560842392a4fa1b4f1~iri",
+      "type": [
+        "ori:LearningObject"
+      ],
+      "image": [
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/ebook/6ebook.png"
+        }
+      ],
+      "url": [
+        {
+          "id": "http://www.staps.univ-avignon.fr/S6/UE1/Psychologie_sociale/Motivation_partie_1_Chanal.pdf"
+        }
+      ],
+      "prefLabel": [
+        "Psychologie sociale Partie 1"
+      ],
+      "dateDeCreation": [
+        "May 19, 2022 7:09 pm"
+      ]
+    },
+    {
+      "id": "ori:LearningObject/1dbcbd8d50e4955c691d551e56f12eb31518d482fb85ef7ee85427dc5253a7a5~iri",
+      "type": [
+        "ori:LearningObject"
+      ],
+      "image": [
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/video/10video.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/video/8video.png"
+        }
+      ],
+      "url": [
+        {
+          "id": "http://www.canal-u.tv/video/canal_u_medecine/troubles_des_interactions_sociales_social_interaction_impairments.2687"
+        }
+      ],
+      "prefLabel": [
+        "Troubles des interactions sociales/Social interaction impairments"
+      ],
+      "dateDeCreation": [
+        "May 19, 2022 7:09 pm"
+      ]
+    },
+    {
+      "id": "ori:LearningObject/2356d4a996e6a316559eac32ddbfaa37748ae59f74f3782662e23679988185b5~iri",
+      "type": [
+        "ori:LearningObject"
+      ],
+      "image": [
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/10website.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/1website.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/2website.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/3website.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/4website.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/5website.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/9website.png"
+        }
+      ],
+      "url": [
+        {
+          "id": "https://www.over-blog.com/app.php/Apprendre_la_psychologie_sociale_toutes_les_formations_disponibles_livres_aides_en_ligne_cours-1095203869-art198301.html"
+        }
+      ],
+      "prefLabel": [
+        "Apprendre la psychologie sociale : toutes les formations ...",
+        "Apprendre la psychologie sociale : toutes les formations disponibles ..."
+      ],
+      "dateDeCreation": [
+        "May 19, 2022 7:09 pm"
+      ]
+    },
+    {
+      "id": "ori:LearningObject/24df7614303faef0c793bdbbe8f70bd6fb953fe8838243e2a998ddb11e006af3~iri",
+      "type": [
+        "ori:LearningObject"
+      ],
+      "image": [
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/1article.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/3article.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/4article.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/5article.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/6article.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/7article.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/9article.png"
+        }
+      ],
+      "url": [
+        {
+          "id": "https://fr.wikipedia.org/wiki/Psychologie_de_l%27apprentissage"
+        }
+      ],
+      "prefLabel": [
+        "Psychologie de l'apprentissage — Wikipédia"
+      ],
+      "dateDeCreation": [
+        "May 12, 2022 7:09 pm"
+      ]
+    },
+    {
+      "id": "ori:LearningObject/2e752c0c8c8610344a391971bc3403975b4d3b3508424c1e0656cfa599f16800~iri",
+      "type": [
+        "ori:LearningObject"
+      ],
+      "image": [
+        {
+          "id": "https://i.ytimg.com/vi/52TNSjeUzIg/maxresdefault.jpg"
+        }
+      ],
+      "url": [
+        {
+          "id": "https://www.youtube.com/watch?v=52TNSjeUzIg"
+        }
+      ],
+      "prefLabel": [
+        "La Dissonance Cognitive de Léon Festinger - Psychologie Sociale"
+      ],
+      "dateDeCreation": [
+        "May 10, 2022 7:09 pm"
+      ]
+    },
+    {
+      "id": "ori:LearningObject/34450d657c544e1458abc9fb833b21cc0f008caab38dfc73d0e9b79e0efeadfb~iri",
+      "type": [
+        "ori:LearningObject"
+      ],
+      "image": [
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/10website.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/1website.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/2website.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/3website.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/4website.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/6website.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/7website.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/8website.png"
+        }
+      ],
+      "url": [
+        {
+          "id": "http://www.psychologie-sociale.com/index.php/fr/"
+        }
+      ],
+      "prefLabel": [
+        "Le site des Expériences de Psychologie Sociale - Accueil"
+      ],
+      "dateDeCreation": [
+        "May 19, 2022 7:09 pm"
+      ]
+    },
+    {
+      "id": "ori:LearningObject/3d0931290676b2e9c93944bc295f95c58b0a4426ed1a95319c82023e729215a0~iri",
+      "type": [
+        "ori:LearningObject"
+      ],
+      "image": [
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/10website.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/4website.png"
+        }
+      ],
+      "url": [
+        {
+          "id": "https://www.passeportsante.net/fr/psychologie/Fiche.aspx?doc=vygotsky-savoir-sur-theorie-developpement-social"
+        }
+      ],
+      "prefLabel": [
+        "Vygotsky : tout savoir sur la théorie du développement social"
+      ],
+      "dateDeCreation": [
+        "May 19, 2022 7:09 pm"
+      ]
+    },
+    {
+      "id": "ori:LearningObject/40aca04b86a45b83ba20c8ef9083258b0eab1dfbc80d5430c23457d1f7d2982c~iri",
+      "type": [
+        "ori:LearningObject"
+      ],
+      "image": [
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/7website.png"
+        }
+      ],
+      "url": [
+        {
+          "id": "https://www.etudier.com/sujets/psychologie-sociale-et-interaction/34"
+        }
+      ],
+      "prefLabel": [
+        "Résultats Page 34 Psychologie Sociale Et Interaction | Etudier"
+      ],
+      "dateDeCreation": [
+        "May 19, 2022 7:09 pm"
+      ]
+    },
+    {
+      "id": "ori:LearningObject/68bc443b55f40761887fa149bdd79a67e625744ad07073e48866bb2dde5fae07~iri",
+      "type": [
+        "ori:LearningObject"
+      ],
+      "image": [
+        {
+          "id": "http://www.college-de-france.fr/video/roger-guesnerie/2012/col-guesnerie-bisin-moro-topa-20120627_thumb.jpg"
+        }
+      ],
+      "url": [
+        {
+          "id": "https://www.college-de-france.fr/site/roger-guesnerie/symposium-2012-06-27-15h40.htm"
+        }
+      ],
+      "prefLabel": [
+        "The Empirical Content of Models with Multiple Equilibria in Economies with Social Interactions"
+      ],
+      "dateDeCreation": [
+        "May 10, 2022 7:09 pm"
+      ]
+    },
+    {
+      "id": "ori:LearningObject/6ebabc5f89214d9f70ea9fd3e97854961825a37cd4d31f58becea055056ea98e~iri",
+      "type": [
+        "ori:LearningObject"
+      ],
+      "image": [
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/ebook/10ebook.png"
+        }
+      ],
+      "url": [
+        {
+          "id": "http://www.staps.univ-avignon.fr/S6/UE1/Psychologie_sociale/Motivation_partie_2_chanal.pdf"
+        }
+      ],
+      "prefLabel": [
+        "Psychologie sociale Partie 2"
+      ],
+      "dateDeCreation": [
+        "May 19, 2022 7:09 pm"
+      ]
+    },
+    {
+      "id": "ori:LearningObject/76a2164ac6d54aeacc6504edc52b0312a10922cd5eed3aa15a9e97293fae50db~iri",
+      "type": [
+        "ori:LearningObject"
+      ],
+      "image": [
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/10website.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/1website.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/3website.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/5website.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/7website.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/9website.png"
+        }
+      ],
+      "url": [
+        {
+          "id": "https://blog.cognifit.com/fr/lapprentissage-social-bandura/"
+        }
+      ],
+      "prefLabel": [
+        "La théorie de l'apprentissage social d'Albert ... - CogniFit",
+        "La théorie de l'apprentissage social d'Albert Bandura - CogniFit",
+        "La théorie de l'apprentissage social d'Albert Bandura ..."
+      ],
+      "dateDeCreation": [
+        "May 19, 2022 7:09 pm"
+      ]
+    },
+    {
+      "id": "ori:LearningObject/7c48d217666e244134831131e5b536c25811cd5dbe9c954623c3821f41c63df0~iri",
+      "type": [
+        "ori:LearningObject"
+      ],
+      "image": [
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/10article.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/1article.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/3article.png"
+        }
+      ],
+      "url": [
+        {
+          "id": "https://fr.wikipedia.org/wiki/Psychologie_sociale_appliqu%C3%A9e"
+        }
+      ],
+      "prefLabel": [
+        "Psychologie sociale appliquee"
+      ],
+      "dateDeCreation": [
+        "May 12, 2022 7:09 pm"
+      ]
+    },
+    {
+      "id": "ori:LearningObject/84802b6f53fa3a003333579d712e2216ca5f240619c5866b9ff1171c5641ac10~iri",
+      "type": [
+        "ori:LearningObject"
+      ],
+      "image": [
+        {
+          "id": "https://i3.ytimg.com/vi/RWcibA8dB3M/hqdefault.jpg"
+        }
+      ],
+      "url": [
+        {
+          "id": "https://www.youtube.com/watch?v=RWcibA8dB3M"
+        }
+      ],
+      "prefLabel": [
+        "La psychologie du développement, de la personnalité et sociale - Cours condensé de psychologie #9"
+      ],
+      "dateDeCreation": [
+        "May 10, 2022 7:09 pm"
+      ]
+    },
+    {
+      "id": "ori:LearningObject/9b393af44e5e84549389db2e777662cf5de1c48e35046441a8a78ed8b93f029b~iri",
+      "type": [
+        "ori:LearningObject"
+      ],
+      "image": [
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/2article.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/4article.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/5article.png"
+        }
+      ],
+      "url": [
+        {
+          "id": "https://fr.wikipedia.org/wiki/Interaction_sociale"
+        }
+      ],
+      "prefLabel": [
+        "Interaction sociale"
+      ],
+      "dateDeCreation": [
+        "May 12, 2022 7:09 pm"
+      ]
+    },
+    {
+      "id": "ori:LearningObject/a896d4a2671da83c5fde9caf62945ba560953e2ae288f1dad4da1d63ca5c74d4~iri",
+      "type": [
+        "ori:LearningObject"
+      ],
+      "image": [
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/ebook/2ebook.png"
+        }
+      ],
+      "url": [
+        {
+          "id": "http://www.staps.univ-avignon.fr/S6/UE1/Psychologie_sociale/Motivation_partie_4_Chanal.pdf"
+        }
+      ],
+      "prefLabel": [
+        "Psychologie sociale Partie 4"
+      ],
+      "dateDeCreation": [
+        "May 19, 2022 7:09 pm"
+      ]
+    },
+    {
+      "id": "ori:LearningObject/ae137f63b6fb1f52cc4894b2638757898c7117563c5f26840a9a77377888cebe~iri",
+      "type": [
+        "ori:LearningObject"
+      ],
+      "image": [
+        {
+          "id": "https://i3.ytimg.com/vi/BN6OMU2HL5c/hqdefault.jpg"
+        }
+      ],
+      "url": [
+        {
+          "id": "https://www.youtube.com/watch?v=BN6OMU2HL5c"
+        }
+      ],
+      "prefLabel": [
+        "Expérience de psychologie sociale : biais de confirmation"
+      ],
+      "dateDeCreation": [
+        "May 10, 2022 7:09 pm"
+      ]
+    },
+    {
+      "id": "ori:LearningObject/bd516db88b6e70688cff872362d6d84bcf9b38f03701dc47ce87297d6d602289~iri",
+      "type": [
+        "ori:LearningObject"
+      ],
+      "image": [
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/ebook/6ebook.png"
+        }
+      ],
+      "url": [
+        {
+          "id": "http://www.staps.univ-avignon.fr/S6/UE1/Psychologie_sociale/Motivation_partie_3_chanal.pdf"
+        }
+      ],
+      "prefLabel": [
+        "Psychologie sociale Partie 3"
+      ],
+      "dateDeCreation": [
+        "May 19, 2022 7:09 pm"
+      ]
+    },
+    {
+      "id": "ori:LearningObject/c43516060fb163c40121b7b62716be2c1fd8ed63798f7d952baeec7187c504e2~iri",
+      "type": [
+        "ori:LearningObject"
+      ],
+      "image": [
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/1website.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/website/5website.png"
+        }
+      ],
+      "url": [
+        {
+          "id": "https://www.psychologie-sociale.com/index.php/fr/?option=com_content&task=view&id=43&Itemid=28"
+        }
+      ],
+      "prefLabel": [
+        "Psychologie-sociale"
+      ],
+      "dateDeCreation": [
+        "May 19, 2022 7:09 pm"
+      ]
+    },
+    {
+      "id": "ori:LearningObject/d40d28d9146ca63197b59316ec7f56bb9143d63d7525d288113c87d0e63f9927~iri",
+      "type": [
+        "ori:LearningObject"
+      ],
+      "image": [
+        {
+          "id": "http://www.college-de-france.fr/video/alain-prochiantz/2014/09-col-prochiantz-barthelemy-20140513_thumb.jpg"
+        }
+      ],
+      "url": [
+        {
+          "id": "https://www.college-de-france.fr/site/alain-prochiantz/seminar-2014-05-13-16h15.htm"
+        }
+      ],
+      "prefLabel": [
+        "Conference de cloture: Declin tres precoce des interactions sociales synchronisees dans l'autisme : pistes physiopathologiques"
+      ],
+      "dateDeCreation": [
+        "May 10, 2022 7:09 pm"
+      ]
+    },
+    {
+      "id": "ori:LearningObject/e5bd38b0de21f3c9ee93fcb0bb04890a151e34d0c51fd3f255d6b7fed6fbef3a~iri",
+      "type": [
+        "ori:LearningObject"
+      ],
+      "image": [
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/10article.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/1article.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/2article.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/3article.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/4article.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/5article.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/6article.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/7article.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/8article.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/9article.png"
+        }
+      ],
+      "url": [
+        {
+          "id": "https://fr.wikipedia.org/wiki/Psychologie_sociale"
+        }
+      ],
+      "prefLabel": [
+        "Psychologie sociale",
+        "Psychologie sociale — Wikipédia"
+      ],
+      "dateDeCreation": [
+        "May 12, 2022 7:09 pm"
+      ]
+    },
+    {
+      "id": "ori:LearningObject/ee8e8463d85a7e14c2c8793b47094a4ccfb524fe446c8efdcc1e8051ed7766fc~iri",
+      "type": [
+        "ori:LearningObject"
+      ],
+      "image": [
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/10article.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/1article.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/2article.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/5article.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/7article.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/8article.png"
+        },
+        {
+          "id": "https://picturelo.s3.eu-west-3.amazonaws.com/article/9article.png"
+        }
+      ],
+      "url": [
+        {
+          "id": "https://fr.wikipedia.org/wiki/Psychosociologie"
+        }
+      ],
+      "prefLabel": [
+        "Psychosociologie — Wikipédia"
+      ],
+      "dateDeCreation": [
+        "May 12, 2022 7:09 pm"
+      ]
+    },
+    {
+      "id": "ori:LearningObject/f829a90bc8967a2cf6b48c8c288e889762951e6b59c28723a24dbe4fe251fa70~iri",
+      "type": [
+        "ori:LearningObject"
+      ],
+      "image": [
+        {
+          "id": "https://i3.ytimg.com/vi/lYD1bqME0oA/hqdefault.jpg"
+        }
+      ],
+      "url": [
+        {
+          "id": "https://www.youtube.com/watch?v=lYD1bqME0oA"
+        }
+      ],
+      "prefLabel": [
+        "Psychologie - La théorie sociale cognitive d'Albert Bandura"
+      ],
+      "dateDeCreation": [
+        "May 10, 2022 7:09 pm"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+Edtech,Objet,Proprietes,Sous-propriété,Description,Mapping
+Jobready,badge,context,,type d’experience,ori:experienceType
+Jobready,badge,level,,niveau,ori:Aptitude
+Jobready,badge,skill,,competence,ori:Aptitude
+Jobready,badge,skill,description,description de la competence,rdfx:description
+Jobready,badge,skill,nom,nom de la competence,obi:name
+Inokufu,contenu éducatif,date,,date de création,nfr:dateDeCreation
+Inokufu,contenu éducatif,picture,,image représentant la formation,schema:image
+Inokufu,contenu éducatif,title,,titre de la formation,skos:prefLabel
+Inokufu,contenu éducatif,url,,url du contenu éducatif,schema:url
+Orientoi,badge,skill,,competence,ori:BadgeCollection/Orientoi
+Orientoi,badge,level,,niveau,ori:BadgeCollection/Orientoi
+Orientoi,proposition,description,,description,ori:Terms/SuggestionType
+Orientoi,proposition,id,,id,ori:Terms/SuggestionType
+Orientoi,proposition,name,,nom de la proposition,ori:Terms/SuggestionType
+Orientoi,proposition,positionnement,,positionnement de l’utilisateur,ori:suggestionChoice
+Orientoi,proposition,type,,"type de proposition (secteur, métier, ...)",ori:Terms/SuggestionType
+Pitangoo,Experience,id,,id du test,ori:Experience
+Pitangoo,Experience,type,,type de test,ori:Taxonomy/ExperienceType
+Pitangoo,Aptitude,centres_interet,,centres d'intérets mesurés par le test,ori:Aptitude/centres_interet
+Pitangoo,Aptitude,estimedesoi,,estime de soi mesurée par le test,ori:Aptitude/estimedesoi
