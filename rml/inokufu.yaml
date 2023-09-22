@@ -1,0 +1,50 @@
+prefixes:
+  rml: http://semweb.mmlab.be/ns/rml#
+  rr: http://www.w3.org/ns/r2rml#
+  ql: http://semweb.mmlab.be/ns/ql#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  "": http://example.org/rules/
+  schema: http://schema.org/
+  dbo: http://dbpedia.org/ontology/
+  test: https://test.fr/mm
+  fno: https://w3id.org/function/ontology#
+  fnoi: https://w3id.org/function/vocabulary/implementation#
+  fnom: https://w3id.org/function/vocabulary/mapping#
+  fnml: http://semweb.mmlab.be/ns/fnml#
+  grel: http://users.ugent.be/~bjdmeest/function/grel.ttl#
+  xsd: http://www.w3.org/2001/XMLSchema#
+  sh: https://www.w3.org/ns/shacl#
+  hrrdf: https://hrrdf.competencies.be/model#
+  hrrdf-terms: https://hrrdf.competencies.be/terms/
+  rb: https://rml.competencies.be/rml-bridge/functions/
+  skos: http://www.w3.org/2004/02/skos/core#
+  dct: http://purl.org/dc/terms/
+  cbe_sk: https://schemas.competencies.be/skos-extensions/
+  nfr: https://nodefr.competencies.be/nfr/
+  ori: https://ori.competencies.be/ori/
+
+# @TODO: see why generic "sources" don't work when multiple mappings. Raise a ticket
+# @TODO: remove `<mappingNames>/sources` when solved
+# sources:
+#   - [
+#       /vfile/mappings/data~xpath,
+#       /schema/complexType/all/element,
+#     ]
+
+mappings:
+
+  entity_mapping_1: # Mapping Inokufu
+    sources: 
+      - [/vfile/mappings/data~jsonpath, '$.*']
+    s: 
+      - ori:LearningObject/$(id)~iri #identifiant à générer automatiquement
+
+    po:
+      - [a, ori:LearningObject]
+      - [skos:prefLabel, $(title)] 
+      - [schema:url, $(url)~iri] 
+      - [schema:image, $(picture)~iri] 
+      - [nfr:dateDeCreation, $(date)]  
+
+  

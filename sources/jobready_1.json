@@ -1,0 +1,18 @@
+[
+    {
+        "fields": [
+            {
+                "context": [
+                    "Scolaire"
+                ],
+                "level": 0,
+                "skill": {
+                    "description": "Formuler un questionnement permettant de délimiter et d'approfondir la réflexion, la recherche ou l'activité",
+                    "name": "Problématisation"
+                }
+            }
+        ],
+        "name": "Badges",
+        "table": "badges"
+    }
+]
