@@ -1,0 +1,34 @@
+{
+    "badges": {
+        "CONCENTRE": 37,
+        "DYNAMIQUE": 14,
+        "RAPIDE": 28,
+        "RESPECTUEUX": 20
+    },
+    "jobCards": [
+        {
+            "description": "<h3>Travailler dans le domaine du BATIMENT et des TRAVAUX PUBLICS</h3><p>Le bâtiment concerne les activités de conception, construction, rénovation, aménagement ou démolition d’édifices (publics ou privés, industriels ou non). Les travaux publics (TP) concernent les activités de conception, de construction, de rénovation ou de destruction des infrastructures (routes, tunnels, canalisations) et des ouvrages d’art et de génie civil (ponts, barrages, pistes d’aéroport…).</p><p></p><p><b>Quelques bonnes raisons de choisir de m’orienter dans ce domaine :</b><br></p><p><ul><li>J’aimerais participer à la construction des routes et des villes de demain,</li><li>Je souhaite me rendre utile par la mise en place d’infrastructures adaptées</li><li>J’aime les projets concrets</li><li>C’est un secteur qui recrute</li></ul></p><p><b>Quelques métiers de ce secteur :<br></b></p><p><ul><li>Architecte</li><li>BIM manager</li><li>Conducteur / conductrice d’engins de travaux publics</li><li>Couvreur / couvreuse</li><li>Economiste de la construction</li><li>Géomètre-topographe</li><li>Ingénieur / ingénieure efficacité énergétique du bâtiment</li><li>Plombier / plombière</li><li>Techniverrier / techniverrière</li></ul></p><p><b>Le BTP est un secteur essentiel de l'économie française et représente :</b><br></p><p><ul><li>1,13 million de salariés</li><li>628 000 entreprises</li><li>Entre 220 et 320 000 nouveaux collaborateurs intègrent le secteur chaque année</li></ul></p><p><b><i>“Choisir les métiers du bâtiment et des travaux publics, c’est choisir de bâtir pour l’avenir”</i></b><br></p><p></p>",
+            "id": "0dc730b9-3754-11e8-8177-782bcb695311",
+            "isTension": false,
+            "name": "Bâtiment, Travaux publics",
+            "positionnement": "ça me correspond",
+            "type": "Secteur d''activité"
+        },
+        {
+            "description": "<h3>Le métier de DEVOPS</h3><p><b>Description</b></p><p>Le DevOps est impliqué de A à Z dans la création d’un projet informatique. Il se charge de son développement, de le tester, de le publier, de sa maintenance… C’est un expert technique aux nombreuses responsabilités.</p><p></p><p>Il doit maîtriser différents langages de programmation adaptés au projet et langages de script, les outils de tests et de construction, les normes de déploiement du code, le développement logiciel et web, les outils de supervision, la sécurité informatique… Il se doit d’automatiser les processus de façon fiable et efficace.</p><p>La fonction DEVOPS permet de créer un lien étroit entre les équipes de développement et les équipes de production afin de gagner du temps et de simplifier la communication entre équipes.</p><p><b>Compétences de Base attendues</b></p><p>Ce travail demande des capacités d’autonomie et d’adaptabilité. <br>Il faut également être pluriactif.<br>Ce métier impose de toujours être en veille et de se former continuellement.</p><p><b>DevOps, c’est aussi une méthodologie liée à l’Agilité</b></p><p>DevOps est une méthode de développement logiciel, née avec le besoin d’'agilité, qui met l'accent sur la communication, l'intégration et la collaboration entre les équipes pour un déploiement plus rapide et plus fiable. Automatisation de production, configuration, construction, tests, déploiement : toutes ces tâches sont automatisées pour conduire à l'industrialisation de la chaîne logicielle le long du cycle de vie de l'application, du produit. Tout devient alors prévisible et reproductible pour une rapidité de réponse à la demande client et une qualité optimale.</p>",
+            "id": "d716a273-ed85-4733-95e9-d29a74afc874",
+            "isTension": false,
+            "name": "Devops",
+            "positionnement": "ça me correspond",
+            "type": "Métier"
+        },
+        {
+            "description": "<h3>Définition</h3><p>Définit et met en oeuvre la stratégie commerciale de l'entreprise selon des objectifs de rentabilité économique.<br>Dirige un service et coordonne une équipe.<br>Peut organiser et développer l'activité commerciale à l'international ou un type de vente en e-commerce.</p><h3>Accès au métier</h3><p>Cet emploi/métier est accessible avec un diplôme de niveau Master (M1, Master professionnel, diplôme d'école de commerce, diplôme d'ingénieur, ...) dans le secteur commercial.<br>Il est également accessible avec un diplôme de niveau Bac+2 dans le secteur commercial (commercialisation, action commerciale, ...) ou technique (agriculture, sécurité, mécanique, ...), complété par une expérience professionnelle dans le secteur commercial.<br>La pratique d'une langue étrangère, en particulier l'anglais, peut être requise.</p><h3>Condition du métier</h3><p>L'activité de cet emploi/métier s'exerce au sein d'entreprises industrielles, commerciales ou de sociétés de services, en relation avec différents services et intervenants (production, marketing, études, clients grands comptes, fournisseurs, ...).</p><h3>Environnement de travail</h3><p>Structures</p><ul><li>Entreprise industrielle</li><li>Entreprise publique/établissement public</li><li>Société de services</li></ul><p>Secteurs</p><ul><li>Aéronautique, spatial</li><li>Agriculture</li><li>Alimentaire</li><li>Armement</li><li>Automobile</li><li>Bâtiment et Travaux Publics -BTP-</li><li>Bois, ameublement</li><li>Chimie</li><li>Chimie fine</li><li>Combustibles</li><li>Commerce/vente</li><li>Electricité</li><li>Electroménager</li><li>Electronique</li><li>Energie, nucléaire, fluide</li><li>Ferroviaire</li><li>Habillement, cuir, textile</li><li>Industrie cosmétique</li><li>Industrie du papier, carton</li><li>Industrie graphique</li><li>Information et communication</li><li>Mécanique, travail des métaux</li><li>Métallurgie, sidérurgie</li><li>Machinisme</li><li>Nautisme</li><li>Optique, optronique</li><li>Pétrochimie</li><li>Parachimie</li><li>Plasturgie, caoutchouc, composites</li><li>Sécurité, hygiène, environnement</li><li>Sport et loisirs</li><li>Tourisme</li><li>Transport/logistique</li><li>Verre, matériaux de construction</li></ul><h3>Compétences de Base attendues</h3><table><tbody><tr><td>Investigateur</td><td>6.67 %</td></tr><tr><td>Social</td><td>6.67 %</td></tr><tr><td>Entreprenant</td><td>60.0 %</td></tr><tr><td>Conventionnel</td><td>26.67 %</td></tr></tbody></table>",
+            "id": "c153ccc5-8a0f-44e5-9a26-85670fc2b9e4",
+            "isTension": false,
+            "name": "Responsable e-commerce",
+            "positionnement": "ça me correspond",
+            "type": "Métier"
+        }
+    ]
+}

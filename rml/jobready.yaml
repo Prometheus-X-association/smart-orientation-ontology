@@ -1,0 +1,88 @@
+prefixes:
+  rml: http://semweb.mmlab.be/ns/rml#
+  rr: http://www.w3.org/ns/r2rml#
+  ql: http://semweb.mmlab.be/ns/ql#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  "": http://example.org/rules/
+  schema: http://schema.org/
+  dbo: http://dbpedia.org/ontology/
+  test: https://test.fr/mm
+  fno: https://w3id.org/function/ontology#
+  fnoi: https://w3id.org/function/vocabulary/implementation#
+  fnom: https://w3id.org/function/vocabulary/mapping#
+  fnml: http://semweb.mmlab.be/ns/fnml#
+  grel: http://users.ugent.be/~bjdmeest/function/grel.ttl#
+  xsd: http://www.w3.org/2001/XMLSchema#
+  sh: https://www.w3.org/ns/shacl#
+  hrrdf: https://hrrdf.competencies.be/model#
+  hrrdf-terms: https://hrrdf.competencies.be/terms/
+  rb: https://rml.competencies.be/rml-bridge/functions/
+  skos: http://www.w3.org/2004/02/skos/core#
+  dct: http://purl.org/dc/terms/
+  cbe_sk: https://schemas.competencies.be/skos-extensions/
+  nfr: https://nodefr.competencies.be/nfr/
+  ori: https://ori.competencies.be/ori/
+  obi: https://w3id.org/openbadges#
+  rdfx: https://rdfx.competencies.be/lts/
+
+# @TODO: see why generic "sources" don't work when multiple mappings. Raise a ticket
+# @TODO: remove `<mappingNames>/sources` when solved
+# sources:
+#   - [
+#       /vfile/mappings/data~xpath,
+#       /schema/complexType/all/element,
+#     ]
+
+mappings:
+
+  entity_mapping_1: # Mapping Jobready Assertion
+    sources: 
+      - [/vfile/mappings/data~jsonpath, '$.*.fields.*'] # fonction pour créer un identifiant automatiquement ?
+    s: 
+      - ori:BadgeAssertion/$(id)~iri #Identifiant à automatiser dynamiquement
+    po:
+      - [a, obi:Assertion]
+    #  - [obi:recipient, $(user_id)]
+      - [obi:badge, ori:BadgeCollection/$(.*.name)~iri]
+      - [ori:experienceType, ori:Taxonomy/ExperienceType/$(context)~iri]
+    #  - [ori:aptitudeRating, ori:AptitudeRating/truc~iri]
+    #  - [obi:verification, ]
+    #  - [obi:issuedOn, $(created_at)]
+
+  class_mapping_2: # Mapping Jobready Badges
+    sources: 
+      - [/vfile/mappings/data~jsonpath, '$.*.fields.*.skill']
+    s: 
+      - ori:BadgeCollection/$(name) #Identifiant à automatiser dynamiquement
+    po:
+      - [a, obi:BadgeClass]
+      - [obi:name, $(name)]
+      - [rdfx:description, $(description), fr~lang]
+    #  - [obi:description, $(skill_id)]
+    #  - [obi:verification, ]
+    #  - [obi:issuedOn, $(created_at)]
+    #  - [obi:image, $(logo)]
+    #  - [obi:criteria, $(validated_experiences)]
+      - [obi:issuer, ori:BadgeIssuerProfile/Jobready~iri]
+
+  class_mapping_3: # Mapping Jobready Badges
+    sources: 
+      - [/vfile/mappings/data~jsonpath, '$.*']
+    s: 
+      - ori:BadgeIssuerProfile/Jobready #Identifiant à automatiser dynamiquement
+    po:
+      - [a, obi:Profile]
+      - [obi:name, "Jobready"]
+      - [obi:url, "https://www.jobready.fr/"]
+
+
+
+  collection_mapping_1: # Context taxonomy mapping
+    sources: 
+      - [/vfile/mappings/data~jsonpath, '$.*.fields.*'] # fonction pour créer un identifiant automatiquement ?
+    s: 
+      - ori:Taxonomy/ExperienceType/$(context.*)~iri #Identifiant à automatiser dynamiquement
+    po:
+      - [a, skos:Concept]
+      - [skos:member, ori:Taxonomy/ExperienceType~iri]

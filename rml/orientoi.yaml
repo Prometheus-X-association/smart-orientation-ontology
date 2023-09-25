@@ -1,0 +1,164 @@
+prefixes:
+  rml: http://semweb.mmlab.be/ns/rml#
+  rr: http://www.w3.org/ns/r2rml#
+  ql: http://semweb.mmlab.be/ns/ql#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  "": http://example.org/rules/
+  schema: http://schema.org/
+  dbo: http://dbpedia.org/ontology/
+  test: https://test.fr/mm
+  fno: https://w3id.org/function/ontology#
+  fnoi: https://w3id.org/function/vocabulary/implementation#
+  fnom: https://w3id.org/function/vocabulary/mapping#
+  fnml: http://semweb.mmlab.be/ns/fnml#
+  grel: http://users.ugent.be/~bjdmeest/function/grel.ttl#
+  xsd: http://www.w3.org/2001/XMLSchema#
+  sh: https://www.w3.org/ns/shacl#
+  hrrdf: https://hrrdf.competencies.be/model#
+  hrrdf-terms: https://hrrdf.competencies.be/terms/
+  rb: https://rml.competencies.be/rml-bridge/functions/
+  skos: http://www.w3.org/2004/02/skos/core#
+  dct: http://purl.org/dc/terms/
+  cbe_sk: https://schemas.competencies.be/skos-extensions/
+  nfr: https://nodefr.competencies.be/nfr/
+  ori: https://ori.competencies.be/ori/
+  obi: https://w3id.org/openbadges#
+  mm: https://mm.competencies.be/mm/
+  rdfx: https://rdfx.competencies.be/lts/
+
+# @TODO: see why generic "sources" don't work when multiple mappings. Raise a ticket
+# @TODO: remove `<mappingNames>/sources` when solved
+# sources:
+#   - [
+#       /vfile/mappings/data~xpath,
+#       /schema/complexType/all/element,
+#     ]
+
+mappings:
+
+  class_instantiation_BadgeAssertion: # Mapping Orientoi Assertion
+    sources: 
+      - [/vfile/mappings/data~jsonpath, '$.badges.*']
+    s: 
+      - ori:BadgeAssertion/$(id) #Identifiant à automatiser dynamiquement
+    po:
+      - [a, obi:Assertion]
+    #  - [obi:recipient, $(profileID)]
+      - [obi:badge, ori:BadgeCollection/Orientoi/$(label)~iri]
+    #  - [ori:aptitudeRating, ori:AptitudeRating/$(number)~iri]
+    #  - [obi:verification, ]
+    #  - [obi:issuedOn, $(created_at)]
+                   
+
+  class_mapping_2: # Mapping Jobready Badges
+    sources: 
+      - [/vfile/mappings/data~jsonpath, '$.badges.*']
+    s: 
+      - ori:BadgeCollection/Orientoi/$(label) #Identifiant à automatiser dynamiquement
+    po:
+      - [a, obi:BadgeClass]
+      - [obi:name, $(label)]
+    #  - [rdfx:description, $(description), fr~lang]
+    #  - [obi:description, $(skill_id)]
+    #  - [obi:verification, ]
+    #  - [obi:issuedOn, $(created_at)]
+    #  - [obi:image, $(logo)]
+    #  - [obi:criteria, $(validated_experiences)]
+      - [obi:issuer, ori:BadgeIssuerProfile/Orientoi~iri]
+
+
+  class_instantiation_BadgeIssuer: # Mapping Orientoi Badges
+    sources: 
+      - [/vfile/mappings/data~jsonpath, '$.*']
+    s: 
+      - ori:BadgeIssuerProfile/Orientoi #Identifiant à automatiser dynamiquement
+    po:
+      - [a, obi:Profile]
+      - [obi:name, "Orientoi", fr~lang]
+      - [obi:url, "https://www.orientoi.fr/"]
+
+
+  
+  class_creation_Suggestion: # Mapping Orientoi Suggestion
+    sources: 
+      - [/vfile/mappings/data~jsonpath, '$.*']
+    s: 
+      - ori:Suggestion 
+    po:
+      - [a, rdfs:Class]
+      - [rdfs:label, "Suggestions",fr~lang]
+      - [rdfs:comment, "Suggestions proposées à l'utilisateur",fr~lang] 
+
+
+  property_creation_suggestionType: # Mapping Orientoi Aptitude
+    sources: 
+      - [/vfile/mappings/data~jsonpath, '$.jobCards.*']
+    s: 
+      - ori:suggestionType 
+    po:
+      - [a, rdf:Property]
+      - [rdfs:label, "type de suggestion",fr~lang]
+      - [rdfs:comment, "Type de suggestion proposée à l'utilisateur",fr~lang] 
+      - [rdfs:domain, ori:Suggestion~iri]
+      - [rdfs:range, skos:Concept~iri]        
+
+  collection_instantiation_SuggestionType: # Mapping Orientoi Suggestion Type
+    sources: 
+      - [/vfile/mappings/data~jsonpath, '$.jobCards.*']
+    s: 
+      - ori:Terms/SuggestionType#$(type)~iri
+    po:
+      - [a, skos:Concept]   
+      - [skos:prefLabel, $(type)] 
+
+  collection_creation_SuggestionType: # Mapping Orientoi Suggestion Type
+    sources: 
+      - [/vfile/mappings/data~jsonpath, '$.jobCards.*']
+    s: 
+      - ori:Terms/SuggestionType
+    po:
+      - [a, skos:Collection]
+      - [skos:member, ori:Terms/SuggestionType#$(type)~iri]
+      - [rdfs:label, "Référentiel des types de suggestion",fr~lang]
+
+  property_creation_suggestionChoice: # Mapping Orientoi Aptitude
+    sources: 
+      - [/vfile/mappings/data~jsonpath, '$.jobCards.*']
+    s: 
+      - ori:suggestionChoice 
+    po:
+      - [a, rdf:Property]
+      - [rdfs:label, "positionnement",fr~lang]
+      - [rdfs:comment, "Positionnement de l'utilisateur",fr~lang] 
+      - [rdfs:domain, ori:Suggestion~iri]
+      - [rdfs:range, skos:Concept~iri]  
+
+  collection_instantiation_SuggestionChoice: # Mapping Orientoi Suggestions
+    sources: 
+      - [/vfile/mappings/data~jsonpath, '$.jobCards.*']
+    s: 
+      - ori:Terms/SuggestionChoice#$(positionnement)~iri
+    po:
+      - [a, skos:Concept]
+      - [rdfs:label, $(positionnement),fr~lang] 
+
+  collection_creation_SuggestionChoice: # Mapping Orientoi Suggestions
+    sources: 
+      - [/vfile/mappings/data~jsonpath, '$.jobCards.*']
+    s: 
+      - ori:Terms/SuggestionChoice
+    po:
+      - [a, skos:Collection]
+      - [rdfs:label, "Référentiel des positionnement proposés suite à une suggestion",fr~lang] 
+      - [skos:member, ori:Terms/SuggestionChoice#$(positionnement)~iri]      
+
+  class_instanciation_Suggestion: # Mapping Orientoi Suggestion
+    sources: 
+      - [/vfile/mappings/data~jsonpath, '$.jobCards.*']
+    s: 
+      - ori:Suggestion/$(id)
+    po:
+      - [a, ori:Suggestion]
+      - [ori:suggestionChoice,ori:Terms/SuggestionChoice#$(positionnement)~iri] 
+      - [ori:suggestionType,ori:Terms/SuggestionType#$(type)~iri] 
