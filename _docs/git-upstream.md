@@ -1,14 +1,16 @@
+# Update both sides
 
-# Update upstream
-
-* for the first time add `--allow-unrelated-histories`, after test without: 
 ```
+git checkout main 
+## do git commit 
+git push 
 git checkout upmain
-git merge main --allow-unrelated-histories
-git push
+git merge main 
+git push 
+git checkout main 
 ```
 
-# set-up
+# First time set-up :
 
 * add the prometheus-x as `upstream` remote
 ```
@@ -23,4 +25,9 @@ git fetch upstream
 git switch -c upmain upstream/upmain
 ```
 
-
+* for the first time push to remote: (add `--allow-unrelated-histories`): 
+```
+git checkout upmain
+git merge main --allow-unrelated-histories
+git push
+```
